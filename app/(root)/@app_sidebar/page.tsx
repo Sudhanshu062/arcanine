@@ -64,34 +64,9 @@ const data = {
                             title: "Settings",
                             url: "#",
                         },
-                    ],
-                },
-                // {
-                //   title: "Real-time",
-                //   url: "#",
-                //   icon: RiBardLine,
-                // },
-                // {
-                //   title: "Assistants",
-                //   url: "#",
-                //   icon: RiMickeyLine,
-                // },
-                // {
-                //   title: "Audio",
-                //   url: "#",
-                //   icon: RiMicLine,
-                // },
-                // {
-                //   title: "Metrics",
-                //   url: "#",
-                //   icon: RiCheckDoubleLine,
-                // },
-                // {
-                //   title: "Documentation",
-                //   url: "#",
-                //   icon: RiBracesLine,
-                // },
-            ],
+                    ]
+                }
+            ]
         },
         {
             title: "More",
