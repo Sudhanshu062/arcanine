@@ -15,11 +15,6 @@ import {
 } from "@/components/ui/sidebar";
 import {
     RiChat1Line,
-    RiBardLine,
-    RiMickeyLine,
-    RiMicLine,
-    RiCheckDoubleLine,
-    RiBracesLine,
     RiPlanetLine,
     RiSeedlingLine,
     RiSettings3Line,

@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 
-import { SettingsPanelTrigger } from "@/components/settings-panel";
+import { SettingsPanelTrigger } from "@/app/(root)/_components/settings-panel-trigger";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -14,15 +14,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
-    RiCodeSSlashLine,
-    RiShareLine,
-    RiShareCircleLine,
     RiShining2Line,
     RiAttachment2,
     RiMicLine,
     RiLeafLine,
 } from "@remixicon/react";
 import { ChatMessage } from "@/components/chat-message";
+import { EllipsisVertical } from "lucide-react";
 
 const Page = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -32,7 +30,7 @@ const Page = () => {
     }, []);
 
     return (
-        <ScrollArea className="flex-1 [&>div>div]:h-full w-full shadow-md md:rounded-s-[inherit] min-[1024px]:rounded-e-3xl bg-background">
+        <ScrollArea className="flex-1 [&>div>div]:h-full w-full shadow-md md:rounded-s-[inherit] min-[1024px]:rounded-e-3xl bg-background no-scrollbar">
             <div className="h-full flex flex-col px-4 md:px-6 lg:px-8">
                 {/* Header */}
                 <div className="py-5 bg-background sticky top-0 z-10 before:absolute before:inset-x-0 before:bottom-0 before:h-px before:bg-gradient-to-r before:from-black/[0.06] before:via-black/10 before:to-black/[0.06]">
@@ -40,38 +38,17 @@ const Page = () => {
                         <Breadcrumb>
                             <BreadcrumbList className="sm:gap-1.5">
                                 <BreadcrumbItem>
-                                    <BreadcrumbLink href="#">Playground</BreadcrumbLink>
+                                    <BreadcrumbLink href="/">Chat</BreadcrumbLink>
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator />
                                 <BreadcrumbItem>
-                                    <BreadcrumbPage>Chat</BreadcrumbPage>
+                                    <BreadcrumbPage>d0d97ea3-767d-4cc9-baa3-11771df64719</BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
                         </Breadcrumb>
                         <div className="flex items-center gap-1 -my-2 -me-2">
-                            <Button variant="ghost" className="px-2">
-                                <RiCodeSSlashLine
-                                    className="text-muted-foreground sm:text-muted-foreground/70 size-5"
-                                    size={20}
-                                    aria-hidden="true"
-                                />
-                                <span className="max-sm:sr-only">Code</span>
-                            </Button>
-                            <Button variant="ghost" className="px-2">
-                                <RiShareLine
-                                    className="text-muted-foreground sm:text-muted-foreground/70 size-5"
-                                    size={20}
-                                    aria-hidden="true"
-                                />
-                                <span className="max-sm:sr-only">Share</span>
-                            </Button>
-                            <Button variant="ghost" className="px-2">
-                                <RiShareCircleLine
-                                    className="text-muted-foreground sm:text-muted-foreground/70 size-5"
-                                    size={20}
-                                    aria-hidden="true"
-                                />
-                                <span className="max-sm:sr-only">Export</span>
+                            <Button variant="secondary" size="icon" className="size-8">
+                                <EllipsisVertical />
                             </Button>
                             <SettingsPanelTrigger />
                         </div>

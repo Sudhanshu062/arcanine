@@ -10,10 +10,14 @@ import { Label } from "@/components/ui/label";
 import {
     Select,
     SelectContent,
+    SelectGroup,
     SelectItem,
+    SelectLabel,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/select"
+
+import { MODELS } from "@/constants/models";
 
 const Page = () => {
     const id = React.useId();
@@ -45,28 +49,30 @@ const Page = () => {
                             <Label htmlFor={`${id}-model`} className="font-normal">
                                 Model
                             </Label>
-                            <Select defaultValue="1">
+                            <Select defaultValue="openai/gpt-oss-20b">
                                 <SelectTrigger
                                     id={`${id}-model`}
                                     className="bg-background w-auto max-w-full h-7 py-1 px-2 gap-1 [&_svg]:-me-1 border-none"
                                 >
-                                    <SelectValue placeholder="Select model" />
+                                    <SelectValue placeholder="Select a model" />
                                 </SelectTrigger>
                                 <SelectContent
                                     className="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
                                     align="end"
                                 >
-                                    <SelectItem value="1">Chat 4.0</SelectItem>
-                                    <SelectItem value="2">Chat 3.5</SelectItem>
-                                    <SelectItem value="3">Chat 3.0</SelectItem>
-                                    <SelectItem value="4">Chat 2.5</SelectItem>
-                                    <SelectItem value="5">Chat 2.0</SelectItem>
-                                    <SelectItem value="6">Chat 1.5</SelectItem>
-                                    <SelectItem value="7">Chat 1.0</SelectItem>
+                                    {MODELS.map((group) => (
+                                        <SelectGroup key={group.label}>
+                                            <SelectLabel>{group.label}</SelectLabel>
+                                            {group.items.map((item) => (
+                                                <SelectItem key={item.value} value={item.value}>
+                                                    {item.label}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectGroup>
+                                    ))}
                                 </SelectContent>
                             </Select>
                         </div>
-
                         {/* Response format */}
                         <div className="flex items-center justify-between gap-2">
                             <Label htmlFor={`${id}-response-format`} className="font-normal">

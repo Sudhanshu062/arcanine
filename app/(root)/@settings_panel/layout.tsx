@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { useSettingsPanel } from "@/components/settings-panel";
+import { useSettingsPanel } from "@/hooks/use-settings-panel";
 
 import { Sheet, SheetTitle, SheetContent } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
