@@ -40,8 +40,8 @@ const ChatMessage = ({ isUser, children }: Props) => {
             : "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp2/user-01_i5l7tp.png"
         }
         alt={isUser ? "User profile" : "Bart logo"}
-        width={40}
-        height={40}
+        width={30}
+        height={30}
       />
       <div
         className={cn(isUser ? "bg-muted px-4 py-3 rounded-xl" : "space-y-4")}

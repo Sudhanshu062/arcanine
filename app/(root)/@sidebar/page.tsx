@@ -1,12 +1,11 @@
 import React from "react";
+import Link from "next/link";
+
+import { ChevronRight } from "lucide-react";
 
 import {
     RiChat1Line,
     RiBardLine,
-    RiMickeyLine,
-    RiMicLine,
-    RiCheckDoubleLine,
-    RiBracesLine,
     RiPlanetLine,
     RiSeedlingLine,
     RiSettings3Line,
@@ -14,6 +13,11 @@ import {
 
 import { TeamSwitcher } from "@/components/team-switcher";
 
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 import {
     Sidebar,
     SidebarContent,
@@ -25,6 +29,9 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubButton,
+    SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
 const data = {
@@ -52,33 +59,23 @@ const data = {
                     url: "#",
                     icon: RiChat1Line,
                     isActive: true,
+                    subItems: [
+                        {
+                            title: "Group Chat",
+                            url: "#",
+                        },
+                        {
+                            title: "Direct Message",
+                            url: "#",
+                        },
+                    ],
                 },
                 {
                     title: "Real-time",
                     url: "#",
                     icon: RiBardLine,
-                },
-                {
-                    title: "Assistants",
-                    url: "#",
-                    icon: RiMickeyLine,
-                },
-                {
-                    title: "Audio",
-                    url: "#",
-                    icon: RiMicLine,
-                },
-                {
-                    title: "Metrics",
-                    url: "#",
-                    icon: RiCheckDoubleLine,
-                },
-                {
-                    title: "Documentation",
-                    url: "#",
-                    icon: RiBracesLine,
-                },
-            ],
+                }
+            ]
         },
         {
             title: "More",
@@ -119,24 +116,47 @@ const Page = () => {
                     <SidebarGroupContent className="px-2">
                         <SidebarMenu>
                             {data.navMain[0]?.items.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton
-                                        asChild
-                                        className="group/menu-button font-medium gap-3 h-9 rounded-md data-[active=true]:hover:bg-transparent data-[active=true]:bg-gradient-to-b data-[active=true]:from-sidebar-primary data-[active=true]:to-sidebar-primary/70 data-[active=true]:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] [&>svg]:size-auto"
-                                        isActive={item.isActive}
-                                    >
-                                        <a href={item.url}>
-                                            {item.icon && (
-                                                <item.icon
-                                                    className="text-sidebar-foreground/50 group-data-[active=true]/menu-button:text-sidebar-foreground"
-                                                    size={22}
-                                                    aria-hidden="true"
-                                                />
-                                            )}
-                                            <span>{item.title}</span>
-                                        </a>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
+                                <Collapsible
+                                    key={item.title}
+                                    asChild
+                                    defaultOpen={item.isActive}
+                                    className="group/collapsible"
+                                >
+                                    <SidebarMenuItem key={item.title}>
+                                        <CollapsibleTrigger asChild>
+                                            <SidebarMenuButton
+                                                asChild
+                                                className="group/menu-button font-medium gap-3 h-9 rounded-md data-[active=true]:hover:bg-transparent data-[active=true]:bg-gradient-to-b data-[active=true]:from-sidebar-primary data-[active=true]:to-sidebar-primary/70 data-[active=true]:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] [&>svg]:size-auto"
+                                                isActive={item.isActive}
+                                            >
+                                                <a href={item.url}>
+                                                    {item.icon && (
+                                                        <item.icon
+                                                            className="text-sidebar-foreground/50 group-data-[active=true]/menu-button:text-sidebar-foreground"
+                                                            size={22}
+                                                            aria-hidden="true"
+                                                        />
+                                                    )}
+                                                    <span>{item.title}</span>
+                                                    <ChevronRight height={16} width={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                                </a>
+                                            </SidebarMenuButton>
+                                        </CollapsibleTrigger>
+                                        <CollapsibleContent className="pt-1">
+                                            <SidebarMenuSub>
+                                                {item?.subItems?.map((subItem) => (
+                                                    <SidebarMenuSubItem key={subItem.title}>
+                                                        <SidebarMenuSubButton asChild>
+                                                            <a href={subItem.url}>
+                                                                <span>{subItem.title}</span>
+                                                            </a>
+                                                        </SidebarMenuSubButton>
+                                                    </SidebarMenuSubItem>
+                                                ))}
+                                            </SidebarMenuSub>
+                                        </CollapsibleContent>
+                                    </SidebarMenuItem>
+                                </Collapsible>
                             ))}
                         </SidebarMenu>
                     </SidebarGroupContent>
@@ -157,7 +177,7 @@ const Page = () => {
                                         className="group/menu-button font-medium gap-3 h-9 rounded-md [&>svg]:size-auto"
                                         isActive={item.isActive}
                                     >
-                                        <a href={item.url}>
+                                        <Link href={item.url}>
                                             {item.icon && (
                                                 <item.icon
                                                     className="text-sidebar-foreground/50 group-data-[active=true]/menu-button:text-primary"
@@ -166,7 +186,7 @@ const Page = () => {
                                                 />
                                             )}
                                             <span>{item.title}</span>
-                                        </a>
+                                        </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             ))}

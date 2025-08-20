@@ -2,7 +2,12 @@
 
 import React, { useRef, useEffect } from "react";
 
+import { EllipsisVertical } from "lucide-react";
+
 import { SettingsPanelTrigger } from "@/app/(root)/_components/settings-panel-trigger";
+
+import { ChatMessage } from "@/components/chat-message";
+
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -19,10 +24,9 @@ import {
     RiMicLine,
     RiLeafLine,
 } from "@remixicon/react";
-import { ChatMessage } from "@/components/chat-message";
-import { EllipsisVertical } from "lucide-react";
 
 const Page = () => {
+
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -188,6 +192,7 @@ const Page = () => {
             </div>
         </ScrollArea>
     );
+
 }
 
 export default Page
