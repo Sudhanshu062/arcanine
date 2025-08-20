@@ -1,6 +1,9 @@
 "use client";
 
-import { useSliderWithInput } from "@/hooks/use-slider-with-input";
+import React from 'react'
+
+import { RiRefreshLine } from "@remixicon/react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,10 +14,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { RiRefreshLine } from "@remixicon/react";
+
+import { useSliderWithInput } from "@/hooks/use-slider-with-input";
+
 import { cn } from "@/lib/utils";
 
-interface SliderControlProps {
+type Props = {
   className?: string;
   minValue: number;
   maxValue: number;
@@ -24,7 +29,7 @@ interface SliderControlProps {
   label: string;
 }
 
-export default function SliderControl({
+const SliderControl = ({
   className,
   minValue,
   maxValue,
@@ -32,7 +37,8 @@ export default function SliderControl({
   defaultValue,
   step,
   label,
-}: SliderControlProps) {
+}: Props) => {
+
   const {
     sliderValue,
     inputValues,
@@ -99,3 +105,5 @@ export default function SliderControl({
     </div>
   );
 }
+
+export { SliderControl }

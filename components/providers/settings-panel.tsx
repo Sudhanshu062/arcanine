@@ -4,10 +4,10 @@ import { SettingsPanelContext } from '@/context/settings-panel';
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const SettingsPanelProvider = ({ children }: { children: React.ReactNode }) => {
+
     const isMobile = useIsMobile(1024);
     const [openMobile, setOpenMobile] = React.useState(false);
 
-    // Helper to toggle the sidebar.
     const togglePanel = React.useCallback(() => {
         return isMobile && setOpenMobile((open) => !open);
     }, [isMobile, setOpenMobile]);
@@ -27,6 +27,7 @@ const SettingsPanelProvider = ({ children }: { children: React.ReactNode }) => {
             {children}
         </SettingsPanelContext.Provider>
     );
+
 };
 
 export { SettingsPanelProvider };

@@ -1,6 +1,9 @@
+import React from 'react'
+
+import { RiSettingsLine } from "@remixicon/react";
+
 import { Button } from "@/components/ui/button";
 import { useSettingsPanel } from "@/hooks/use-settings-panel";
-import { RiSettingsLine } from "@remixicon/react";
 
 const SettingsPanelTrigger = ({
     onClick,

@@ -1,6 +1,19 @@
 import React from "react";
 
+import {
+    RiChat1Line,
+    RiBardLine,
+    RiMickeyLine,
+    RiMicLine,
+    RiCheckDoubleLine,
+    RiBracesLine,
+    RiPlanetLine,
+    RiSeedlingLine,
+    RiSettings3Line,
+} from "@remixicon/react";
+
 import { TeamSwitcher } from "@/components/team-switcher";
+
 import {
     Sidebar,
     SidebarContent,
@@ -13,14 +26,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import {
-    RiChat1Line,
-    RiPlanetLine,
-    RiSeedlingLine,
-    RiSettings3Line,
-} from "@remixicon/react";
 
-// This is sample data.
 const data = {
     teams: [
         {
@@ -46,22 +52,33 @@ const data = {
                     url: "#",
                     icon: RiChat1Line,
                     isActive: true,
-                    items: [
-                        {
-                            title: "History",
-                            url: "#",
-                        },
-                        {
-                            title: "Starred",
-                            url: "#",
-                        },
-                        {
-                            title: "Settings",
-                            url: "#",
-                        },
-                    ]
-                }
-            ]
+                },
+                {
+                    title: "Real-time",
+                    url: "#",
+                    icon: RiBardLine,
+                },
+                {
+                    title: "Assistants",
+                    url: "#",
+                    icon: RiMickeyLine,
+                },
+                {
+                    title: "Audio",
+                    url: "#",
+                    icon: RiMicLine,
+                },
+                {
+                    title: "Metrics",
+                    url: "#",
+                    icon: RiCheckDoubleLine,
+                },
+                {
+                    title: "Documentation",
+                    url: "#",
+                    icon: RiBracesLine,
+                },
+            ],
         },
         {
             title: "More",

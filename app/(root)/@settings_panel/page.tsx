@@ -4,7 +4,7 @@ import React from "react";
 
 import { RiQuillPenAiLine } from "@remixicon/react";
 
-import SliderControl from "@/components/slider-control";
+import { SliderControl } from "@/components/slider-control";
 
 import { Label } from "@/components/ui/label";
 import {

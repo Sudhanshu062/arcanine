@@ -1,10 +1,5 @@
-import { cn } from "@/lib/utils";
-import {
-  TooltipProvider,
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import React from 'react'
+
 import {
   RiCodeSSlashLine,
   RiBookLine,
@@ -12,12 +7,21 @@ import {
   RiCheckLine,
 } from "@remixicon/react";
 
-type ChatMessageProps = {
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import { cn } from "@/lib/utils";
+
+type Props = {
   isUser?: boolean;
   children: React.ReactNode;
 };
 
-export function ChatMessage({ isUser, children }: ChatMessageProps) {
+const ChatMessage = ({ isUser, children }: Props) => {
   return (
     <article
       className={cn(
@@ -57,7 +61,7 @@ type ActionButtonProps = {
   label: string;
 };
 
-function ActionButton({ icon, label }: ActionButtonProps) {
+const ActionButton = ({ icon, label }: ActionButtonProps) => {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -73,7 +77,7 @@ function ActionButton({ icon, label }: ActionButtonProps) {
   );
 }
 
-function MessageActions() {
+const MessageActions = () => {
   return (
     <div className="relative inline-flex bg-white rounded-md border border-black/[0.08] shadow-sm -space-x-px">
       <TooltipProvider delayDuration={0}>
@@ -85,3 +89,5 @@ function MessageActions() {
     </div>
   );
 }
+
+export { ChatMessage }
